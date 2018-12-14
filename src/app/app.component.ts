@@ -14,7 +14,7 @@ export class AppComponent {
     this.rout.navigate([
       {
         outlets: {
-          isOne: [type]
+          isOne: [type,{id:9}]
         }
       }
     ])

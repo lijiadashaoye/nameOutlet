@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
 @Component({
   selector: 'app-one',
   templateUrl: './one.component.html',
@@ -7,9 +7,12 @@ import { Router } from '@angular/router'
 })
 export class OneComponent implements OnInit {
 
-  constructor(private rout: Router) { }
+  constructor(private rout: Router, private route: ActivatedRoute, ) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      console.log(params.get('id'))
+    })
   }
   quxiao(type) {
     // this.rout.navigate([{ outlets: { isOne: ['one/child1'] } }])
