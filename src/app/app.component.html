@@ -1,11 +1,15 @@
+<h2>第一个命名路由</h2>
 <button (click)="showOne('one')">showOne</button>
 <button (click)="quxiao(1)">quxiaoisOne</button><br>
 <router-outlet name="isOne"></router-outlet><br>
 
-<button (click)="showTwo('two')">showTwo</button>
-<button (click)="showBoth()">showBoth</button><br>
-<router-outlet></router-outlet><br>
-
+<h2>第二个命名路由</h2>
 <button (click)="showThree('three')">showThree</button>
 <button (click)="quxiao(2)">quxiaoisThree</button><br>
 <router-outlet name="isThree"></router-outlet>
+
+<h2>同时显示两个命名路由</h2>
+<button (click)="showBoth()">showBoth</button><br>
+<h2>无命名默认路由</h2>
+<button (click)="showTwo('two')">showTwo</button>
+<router-outlet></router-outlet><br>
