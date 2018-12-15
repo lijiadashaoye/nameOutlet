@@ -7,16 +7,16 @@ import { Router, ActivatedRoute } from '@angular/router'
 })
 export class OneComponent implements OnInit {
 
-  constructor(private rout: Router, private route: ActivatedRoute, ) { }
+  constructor(private rout: Router, private active_route: ActivatedRoute, ) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
+    this.active_route.paramMap.subscribe(params => {
       console.log(params.get('id'))
     })
   }
   quxiao(type) {
-    this.rout.navigate([type], { relativeTo: this.route })
-    // this.rout.navigate([{ outlets: { isOne: ['one/child1'] } }])
-    // this.rout.navigateByUrl("./(isOne:one//child1)");
+    // relativeTo:this.active_route 表示从当前激活的路由开始进行导航定位
+    // replaceUrl: true 导航时不要把当前状态记入历史
+    this.rout.navigate([type], { relativeTo: this.active_route })
   }
 }
