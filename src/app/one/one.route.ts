@@ -7,7 +7,7 @@ import { OneChild2Component } from './one-child2/one-child2.component'
 const routes: Routes = [
     {
         path: '', component: OneComponent, children: [
-            { path: 'child1', component: OneChildComponent,outlet:'isOne' },
+            { path: 'child1', component: OneChildComponent},
             { path: 'child2', component: OneChild2Component }
         ]
     },
