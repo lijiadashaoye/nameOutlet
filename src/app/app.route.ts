@@ -1,19 +1,49 @@
-import { Routes, RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { TwoComponent } from './two/two.component';
-import { ThreeComponent } from './three/three.component';
+import {
+  Routes,
+  RouterModule
+} from '@angular/router';
+import {
+  NgModule
+} from '@angular/core';
+import {
+  OneComponent
+} from './one/one.component';
 
-const routes: Routes = [
-    { path: 'two', component: TwoComponent },
-    {
-        path: 'one', loadChildren: './one/one.module#OneModule',
-        outlet: 'isOne'
-    },
-    { path: 'three', component: ThreeComponent,outlet:'isThree' },
+const routes: Routes = [{
+    path: 'one',
+    component: OneComponent
+  },
+  {
+    path: 'two',
+    loadChildren: './two/two.module#TwoModule',
+    outlet: 'isTwo'
+  },
+  {
+    path: 'three',
+    loadChildren: './three/three.module#ThreeModule'
+  },
+  {
+    path: 'four',
+    loadChildren: './four/four.module#FourModule'
+  },
+  {
+    path: 'five',
+    loadChildren: './five/five.module#FiveModule',
+    outlet: 'isFive'
+  },
+  {
+    path: '',
+    redirectTo: 'one',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    component: OneComponent
+  }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

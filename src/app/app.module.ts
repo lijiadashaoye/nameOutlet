@@ -1,15 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {
+  BrowserModule
+} from '@angular/platform-browser';
+import {
+  NgModule
+} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { TwoComponent } from './two/two.component';
-import { AppRoutingModule } from './app.route';
-import { ThreeComponent } from './three/three.component';
+import {
+  AppComponent
+} from './app.component';
+import {
+  OneComponent
+} from './one/one.component';
+
+import {
+  AppRoutingModule
+} from './app.route';
+import { CanvansComComponent } from './canvans-com/canvans-com.component'
 @NgModule({
   declarations: [
     AppComponent,
-    TwoComponent,
-    ThreeComponent,
+    OneComponent,
+    CanvansComComponent
   ],
   imports: [
     BrowserModule,
@@ -18,4 +29,4 @@ import { ThreeComponent } from './three/three.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

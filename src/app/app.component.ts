@@ -1,58 +1,71 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router'
+import {
+  Component
+} from '@angular/core';
+import {
+  Router,
+  ActivatedRoute
+} from '@angular/router'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private rout: Router) { }
-  showTwo(type) {
-    this.rout.navigate([type])
+  constructor(
+    public route: Router,
+    public act: ActivatedRoute
+  ) {}
+  toOne() {
+    this.route.navigate(['one'], {
+      relativeTo: this.act
+    })
   }
-  showOne(type) {
-    this.rout.navigate([
-      {
-        outlets: {
-          isOne: [type,{id:9}]
-        }
-      }
-    ])
+  toFour() {
+    this.route.navigate(['four'], {
+      relativeTo: this.act
+    })
   }
-  quxiao(num) {
-    let arr=[];
-    num==1?arr=[
-      {
-        outlets: {
-          isOne: null
-        }
-      }
-    ]:arr=[
-      {
-        outlets: {
-          isThree: null
-        }
-      }
-    ]
-    this.rout.navigate(arr)
+
+  toThree() {
+    this.route.navigate(['three'], {
+      relativeTo: this.act
+    })
   }
-  showThree(type) {
-    this.rout.navigate([
-      {
-        outlets: {
-          isThree: [type],
-        }
+  toTwo() {
+    this.route.navigate([{
+      outlets: {
+        isTwo: ['two']
       }
-    ])
+    }], {
+      relativeTo: this.act
+    }
+    )
   }
-  showBoth(){
-    this.rout.navigate([
-      {
-        outlets: {
-          'isThree': ['three'],
-          'isOne': ['one']
-        }
+  quxiaoTwo() {
+    this.route.navigate([{
+      outlets: {
+        isTwo: null
       }
-    ])
+    }], {
+      relativeTo: this.act
+    })
+  }
+  toFive() {
+    this.route.navigate([{
+      outlets: {
+        isFive: ['five']
+      }
+    }], {
+      relativeTo: this.act
+    })
+  }
+  quxiaoFive() {
+    this.route.navigate([{
+      outlets: {
+        isFive: null
+      }
+    }], {
+      relativeTo: this.act
+    })
   }
 }
