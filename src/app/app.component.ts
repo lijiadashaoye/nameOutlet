@@ -68,4 +68,14 @@ export class AppComponent {
       relativeTo: this.act
     })
   }
+  showBoth(){
+    this.route.navigate([{
+      outlets: {
+        isFive: ['five'],
+        isTwo: ['two']
+      }
+    }], {
+      relativeTo: this.act
+    })
+  }
 }
