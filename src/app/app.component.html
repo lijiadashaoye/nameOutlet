@@ -4,7 +4,10 @@
   <button (click)="toThree()">three</button>
   <button (click)="showBoth()">同时显示两个插槽，并传递参数</button>
   <button (click)="closeBoth()">关闭两个插槽</button>
-  <router-outlet></router-outlet>
+
+  <div [@routeAnimation]="getAnimationData(routerOutlet)">
+    <router-outlet #routerOutlet="outlet"></router-outlet>
+  </div>
 </div>
 <div>
   <button (click)="toFive()">five</button>
@@ -14,5 +17,4 @@
 <button (click)="toTwo()">two</button>
 <button (click)="quxiaoTwo()">quxiaoTwo</button>
 <router-outlet name="isTwo"></router-outlet>
-
 <app-canvans-com id="host"></app-canvans-com>

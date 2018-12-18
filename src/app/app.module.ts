@@ -4,7 +4,8 @@ import {
 import {
   NgModule
 } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router } from '@angular/router';
 import {
   AppComponent
 } from './app.component';
@@ -24,9 +25,11 @@ import { CanvansComComponent } from './canvans-com/canvans-com.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}

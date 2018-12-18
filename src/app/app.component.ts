@@ -3,18 +3,25 @@ import {
 } from '@angular/core';
 import {
   Router,
-  ActivatedRoute
-} from '@angular/router'
+  ActivatedRoute,
+  RouterOutlet
+} from '@angular/router';
+import {slideInAnimation} from './animation';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations:[slideInAnimation]
 })
 export class AppComponent {
   constructor(
     public route: Router,
     public act: ActivatedRoute
   ) {}
+  getAnimationData(outlet: RouterOutlet) {   // 返回值为true即可
+    // console.log(outlet.activatedRouteData['id'])  // 获取路由配置文件内定义的data
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['id'];
+  }
   toOne() {
     this.route.navigate(['one'], {
       relativeTo: this.act

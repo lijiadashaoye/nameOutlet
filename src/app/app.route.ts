@@ -11,7 +11,8 @@ import {
 
 const routes: Routes = [{
     path: 'one',
-    component: OneComponent
+    component: OneComponent,
+    data:{id:'one'}
   },
   {
     path: 'two',
@@ -20,26 +21,28 @@ const routes: Routes = [{
   },
   {
     path: 'three',
-    loadChildren: './three/three.module#ThreeModule'
+    loadChildren: './three/three.module#ThreeModule',
+    data:{id:'three'}
   },
   {
     path: 'four',
-    loadChildren: './four/four.module#FourModule'
+    loadChildren: './four/four.module#FourModule',
+    data:{id:'four'}
   },
   {
     path: 'five',
     loadChildren: './five/five.module#FiveModule',
     outlet: 'isFive'
   },
-  {
-    path: '',
-    redirectTo: 'one',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    component: OneComponent
-  }
+  // {
+  //   path: '',
+  //   redirectTo: 'one',
+  //   pathMatch: 'full'
+  // },
+  // {
+  //   path: '**',
+  //   component: OneComponent
+  // }
 ];
 
 @NgModule({
