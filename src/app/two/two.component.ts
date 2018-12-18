@@ -15,6 +15,11 @@ export class TwoComponent {
     public route: Router,
     public act: ActivatedRoute
   ) {}
+  ngOnInit(): void {
+    this.act.paramMap.subscribe(params => {
+      console.log(params.get('id'))
+    })
+  }
   tochild1() {
     this.route.navigate(['two-child1'], {
       relativeTo: this.act

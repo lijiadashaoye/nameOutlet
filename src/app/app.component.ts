@@ -38,8 +38,7 @@ export class AppComponent {
       }
     }], {
       relativeTo: this.act
-    }
-    )
+    })
   }
   quxiaoTwo() {
     this.route.navigate([{
@@ -68,11 +67,25 @@ export class AppComponent {
       relativeTo: this.act
     })
   }
-  showBoth(){
+  showBoth() {
     this.route.navigate([{
       outlets: {
-        isFive: ['five'],
-        isTwo: ['two']
+        isFive: ['five', {
+          id: 'five'
+        }],
+        isTwo: ['two', {
+          id: 'two'
+        }]
+      }
+    }], {
+      relativeTo: this.act
+    })
+  }
+  closeBoth() {
+    this.route.navigate([{
+      outlets: {
+        isFive: null,
+        isTwo:null
       }
     }], {
       relativeTo: this.act

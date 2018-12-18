@@ -13,6 +13,11 @@ export class FiveComponent  {
     public route: Router,
     public act: ActivatedRoute
   ) {}
+  ngOnInit(): void {
+    this.act.paramMap.subscribe(params => {
+      console.log(params.get('id'))
+    })
+  }
   tochild1() {
     this.route.navigate(['child1'], {
       relativeTo: this.act
